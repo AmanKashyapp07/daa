@@ -33,7 +33,7 @@
  *     - Time: O((V + E) log V)
  *  For any cut (partition of vertices into S and V−S),
     the minimum weight edge crossing the cut is always part of some MST.
-    In any cycle, the maximum weight edge cannot be part of MST.
+    In any cycle, the maximum weight edge cannot be part of MST, because we can always replace it with a smaller edge to get a spanning tree with smaller weight.
  *  EXAM TIP:
  *  - Kruskal's is better for sparse graphs (E is small).
  *  - Prim's is better for dense graphs (E is large, closer to V^2).
@@ -106,7 +106,7 @@ void kruskalMST(int V, vector<Edge>& edges) {
         }
     }
     cout << "Total MST Weight (Kruskal): " << mst_weight << "\n\n";
-}
+} // time complexity of Kruskal's algorithm is O(E log E) due to sorting edges, and O(E α(V)) for union-find operations, which is effectively O(E).
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  PRIM'S ALGORITHM
@@ -150,7 +150,7 @@ void primMST(int V, const vector<vector<pair<int, int>>>& adj) {
         }
     }
     cout << "Total MST Weight (Prim): " << mst_weight << "\n";
-}
+} // time complexity of Prim's algorithm is O((V + E) log V) due to the priority queue operations, where we potentially add each vertex and edge to the queue.
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  DRIVER

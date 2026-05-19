@@ -47,8 +47,7 @@ using namespace std;
 // WHY: Vertex finishes after all its dependents → it appears before them.
 //
 // Time: O(V + E) | Space: O(V)
-void dfsTopo(int u, vector<vector<int>>& adj, vector<bool>& visited,
-             stack<int>& topoStack) {
+void dfsTopo(int u, vector<vector<int>>& adj, vector<bool>& visited, stack<int>& topoStack) {
     visited[u] = true;
     for (int v : adj[u]) {
         if (!visited[v]) {
@@ -127,7 +126,7 @@ vector<int> topologicalSortKahn(vector<vector<int>>& adj, int V) {
     if ((int)result.size() != V) {
         cout << "CYCLE DETECTED! Graph is not a DAG.\n";
         return {};
-    }
+    } // because if cycle exists, we won't be able to process all vertices (some will always have in-degree > 0)
     return result;
 }
 

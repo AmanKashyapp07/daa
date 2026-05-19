@@ -33,29 +33,6 @@ int mcmMemo(const vector<int>& p, int i, int j, vector<vector<int>>& memo) {
     return memo[i][j] = min_cost;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-//  2. OPTIMAL BINARY SEARCH TREE (OBST)
-// ─────────────────────────────────────────────────────────────────────────────
-int sumFreq(const vector<int>& freq, int i, int j) {
-    int s = 0;
-    for (int k = i; k <= j; k++) s += freq[k];
-    return s;
-}
-
-int obstMemo(const vector<int>& freq, int i, int j, vector<vector<int>>& memo) {
-    if (j < i) return 0;
-    if (j == i) return freq[i];
-    if (memo[i][j] != -1) return memo[i][j];
-
-    int fsum = sumFreq(freq, i, j);
-    int min_cost = 9999999;
-
-    for (int k = i; k <= j; k++) {
-        int cost = obstMemo(freq, i, k - 1, memo) + obstMemo(freq, k + 1, j, memo);
-        min_cost = min(min_cost, cost);
-    }
-    return memo[i][j] = min_cost + fsum;
-}
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  3. PALINDROME PARTITIONING

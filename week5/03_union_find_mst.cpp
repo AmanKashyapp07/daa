@@ -63,7 +63,7 @@ public:
         }
         // Path compression: make the parent of i directly the root
         return parent[i] = find(parent[i]);
-    }
+    } // time complexity of find is O(α(n)) which is effectively O(1) for all practical purposes.
 
     // Union by Rank
     bool unite(int i, int j) {
@@ -86,7 +86,7 @@ public:
             rank[root_i]++;
         }
         return true;
-    }
+    } // time complexity of union is O(α(n)) which is effectively O(1) for all practical purposes.
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -144,3 +144,11 @@ int main() {
 
     return 0;
 }
+
+// key points of MST to remember -
+// 1. MST is a subset of edges that connects all vertices with the minimum total weight and no cycles.
+// 2. Kruskal's algorithm sorts edges by weight and adds them to the MST
+//    if they don't create a cycle, using Union-Find to check for cycles.
+// 3. Prim's algorithm grows the MST from a starting vertex by adding the smallest edge that connects the growing MST to a new vertex, using a priority queue to efficiently get the next edge
+// 4. Both algorithms have a time complexity of O(E log E) or O(E log V) due to sorting edges (Kruskal's) or using a priority queue (Prim's).
+// 5. cut property of MST: For any cut in the graph, the minimum weight edge crossing the cut must be in the MST. This is the basis for the greedy choice in both Prim's and Kruskal's algorithms. proof - 

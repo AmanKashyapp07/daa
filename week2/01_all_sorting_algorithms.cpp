@@ -11,7 +11,7 @@
  *  Merge Sort   | O(NlogN)  | O(NlogN) | O(NlogN)   | O(N)  | Yes     |
  *  Quick Sort   | O(NlogN)  | O(NlogN) | O(N^2)     | O(logN)| No     |
  *  Counting Sort| O(N+K)    | O(N+K)   | O(N+K)     | O(N+K)| Yes     |
- *  Radix Sort   | O(d*(N+K))| O(d*(N+K))| O(d*(N+K)) | O(N+K)| Yes     |
+ *  Radix Sort   | O(d*(N+K))|O(d*(N+K))| O(d*(N+K)) | O(N+K)| Yes     |
  *  Bucket Sort  | O(N+K)    | O(N+K)   | O(N^2)     | O(N+K)| Yes     |
  *  Heap Sort*   | O(NlogN)  | O(NlogN) | O(NlogN)   | O(1)  | No      |
  *  
@@ -141,7 +141,7 @@ void merge(vector<int>& arr, int left, int mid, int right) {
 void mergeSort(vector<int>& arr, int left, int right) {
     while (left < right) {
         int mid = left + (right - left) / 2;
-        mergeSort(arr, left, mid);
+        mergeSort(arr, left, mid); 
         mergeSort(arr, mid + 1, right);
         merge(arr, left, mid, right);
     }

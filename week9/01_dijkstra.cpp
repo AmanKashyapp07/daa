@@ -159,3 +159,6 @@ int main() {
 
     return 0;
 }
+
+//CORRECTNESS PROOF:
+// Dijkstra's algorithm is based on the principle of optimality, which states that the shortest path from the source to any vertex v must be composed of the shortest path from the source to some predecessor u of v, plus the edge (u, v). The algorithm maintains a set of vertices for which the shortest path from the source is known and repeatedly selects the vertex with the smallest tentative distance. When a vertex is selected, its shortest path is finalized, and the algorithm relaxes all edges outgoing from that vertex. This process ensures that once a vertex's shortest path is determined, it will not change, which is why the algorithm works correctly for graphs without negative weight edges. The greedy choice of selecting the vertex with the smallest tentative distance at each step guarantees that the algorithm finds the shortest path from the source to all other vertices in the graph. 
