@@ -22,19 +22,12 @@ private:
         // Base case: successfully found an exact sum matching the target
         if (currentSum == target) {
             validSubsets.push_back(subset);
-            // We shouldn't return immediately if there are '0's in the array as adding 0 keeps the sum valid.
         }
-        
-        // Base case: bounds exceeded or array exhausted
         if (currentSum > target || index >= set.size()) {
             return;
         }
-
-        // Path 1: INCLUDE the current element
         subset.push_back(set[index]);
         findSubsets(set, target, currentSum + set[index], index + 1, subset);
-        
-        // Path 2: EXCLUDE the current element (BACKTRACK)
         subset.pop_back();
         findSubsets(set, target, currentSum, index + 1, subset);
     }

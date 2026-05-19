@@ -25,12 +25,10 @@ private:
 
         // Try numbers from 'start' to 'n'
         for (int i = start; i <= n; i++) {
-            current.push_back(i); // ASSIGN
-            
+            current.push_back(i);
             // RECURSE with i+1 to avoid duplicates/permutations and maintain strictly increasing order
             combineUtil(n, k, i + 1, current); 
-            
-            current.pop_back(); // BACKTRACK
+            current.pop_back(); 
         }
     }
 
