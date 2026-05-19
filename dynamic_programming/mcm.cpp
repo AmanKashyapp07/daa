@@ -107,9 +107,7 @@ int main() {
     vector<vector<int>> memo1(n + 1, vector<int>(n + 1, -1));
     cout << "1. MCM Min Multiplications: " << mcmMemo(p, 1, n, memo1) << "\n";
 
-    vector<int> freq = {34, 8, 50};
-    vector<vector<int>> memo2(freq.size(), vector<int>(freq.size(), -1));
-    cout << "2. Optimal BST Cost: " << obstMemo(freq, 0, freq.size() - 1, memo2) << "\n";
+
 
     string str = "ababbbabbababa";
     vector<vector<int>> memo3(str.length(), vector<int>(str.length(), -1));
